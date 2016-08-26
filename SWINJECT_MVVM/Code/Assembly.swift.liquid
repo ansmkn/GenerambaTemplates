@@ -1,0 +1,19 @@
+{% include 'header' %}
+
+import Swinject
+
+struct {{ module_info.name }}Assembly: AssemblyType {
+    func assemble(container: Container) {
+        container.register({{ module_info.name }}ViewController.self) {
+            (resolver: ResolverType) -> {{ module_info.name }}ViewController.self in
+            let vm = resolver.resolve({{ module_info.name }}ViewModel.self)!
+            let vc = {{ module_info.name }}ViewController(viewModel: vm)
+            return vc
+        }
+        container.register({{ module_info.name }}ViewModel.self) {
+            (resolver: ResolverType) -> {{ module_info.name }}ViewModel.self in
+            let vm = {{ module_info.name }}ViewModel(store: resolver.resolve(Store.self)!)
+            return vm
+        }
+    }
+}
