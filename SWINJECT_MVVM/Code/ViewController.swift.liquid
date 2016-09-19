@@ -1,6 +1,8 @@
 {% include 'header' %}
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class {{ module_info.name }}ViewController: ParentViewController {
 
@@ -21,4 +23,8 @@ extension {{ module_info.name }}ViewController {
         super.viewDidLoad()
 
     }
+}
+
+extension {{ module_info.name }}ViewController: Routable {
+
 }

@@ -8,6 +8,7 @@ struct {{ module_info.name }}Assembly: AssemblyType {
             resolver in
             let vm = resolver.resolve({{ module_info.name }}ViewModel.self)!
             let vc = {{ module_info.name }}ViewController(viewModel: vm)
+            vc.resolver = resolver
             return vc
         }
         container.register({{ module_info.name }}ViewModel.self) {
