@@ -1,12 +1,12 @@
 # Template information section
 name: SWINJECT_MVVM
-summary: Originally, template for takejet project. Based on pr0ger's implementation of Reswift
+summary: Originally, template for takejet project.
 author: ansmkn@gmail.com
-version: 1.0.0
+version: 1.1.0
 license: MIT
 
-# The declarations for code files
 code_files:
+# View layer
 - {name: ViewController.swift, path: Code/ViewController.swift.liquid}
 - {name: ViewModel.swift, path: Code/ViewModel.swift.liquid}
 - {name: Actions.swift, path: Code/Actions.swift.liquid}
@@ -14,6 +14,5 @@ code_files:
 
 # The declarations for test files
 test_files:
-
-# Template dependencies
-dependencies:
+- {name: ViewControllerTests.swift, path: Tests/ViewControllerTests.swift.liquid}
+- {name: ViewModelTests.swift, path: Tests/ViewModelTests.swift.liquid}
