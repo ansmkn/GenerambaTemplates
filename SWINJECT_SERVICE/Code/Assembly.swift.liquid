@@ -1,0 +1,13 @@
+{% include 'header' %}
+
+import Swinject
+
+struct {{ module_info.name }}ServiceAssembly: AssemblyType {
+    func assemble(container: Container) {
+        container.register({{ module_info.name }}Service.self) {
+            resolver in
+            let service = {{ module_info.name }}Service()
+            return service
+        }
+    }
+}

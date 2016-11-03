@@ -1,0 +1,16 @@
+# Template information section
+name: SWINJECT_SERVICE
+summary: Originally, template for hh projects.
+author: ansmkn@gmail.com
+version: 1.0.0
+license: MIT
+
+code_files:
+
+- {name: Service.swift, path: Code/Service.swift.liquid}
+- {name: ServiceProtocol.swift, path: Code/Protocol.swift.liquid}
+- {name: Assembly.swift, path: Code/Assembly.swift.liquid}
+
+# The declarations for test files
+test_files:
+- {name: ServiceTests.swift, path: Tests/ServiceTests.swift.liquid}
