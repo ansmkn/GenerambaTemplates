@@ -2,7 +2,7 @@
 
 import Swinject
 
-struct {{ module_info.name }}ServiceAssembly: AssemblyType {
+struct {{ module_info.name }}ServiceAssembly: Assembly {
     func assemble(container: Container) {
         container.register({{ module_info.name }}Service.self) {
             resolver in
