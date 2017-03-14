@@ -2,7 +2,7 @@
 
 import Swinject
 
-struct {{ module_info.name }}Assembly: AssemblyType {
+struct {{ module_info.name }}Assembly: Assembly {
     func assemble(container: Container) {
         container.register({{ module_info.name }}ViewController.self) {
             resolver in

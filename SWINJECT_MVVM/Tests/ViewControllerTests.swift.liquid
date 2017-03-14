@@ -1,10 +1,11 @@
 {% include 'header' %}
 
 import XCTest
-import RxTests
+import RxTest
 import RxBlocking
 import Swinject
 
+// swiftlint:disable force_unwrapping
 class {{ module_info.name }}ViewControllerTests: XCTestCase {
 
     let assemblies = Assemblies()
@@ -13,7 +14,12 @@ class {{ module_info.name }}ViewControllerTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        self.viewController = assemblies.assembler.resolver.resolve({{ module_info.name }}ViewController.self)!
+        let resolver = assemblies.assembler.resolver
+        guard let vc = resolver.resolve({{ module_info.name }}ViewController.self) else {
+            print("Factory broken")
+            return
+        }
+        self.viewController = vc
     }
 
     override func tearDown() {

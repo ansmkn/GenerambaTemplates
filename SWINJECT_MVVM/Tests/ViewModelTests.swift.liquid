@@ -1,7 +1,7 @@
 {% include 'header' %}
 
 import XCTest
-import RxTests
+import RxTest
 import RxBlocking
 import Swinject
 
@@ -13,7 +13,11 @@ class {{ module_info.name }}ViewModelTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        self.viewModel = assemblies.assembler.resolver.resolve({{ module_info.name }}ViewModel.self)!
+        let resolver = assemblies.assembler.resolver
+        guard let vm = resolver.resolve({{ module_info.name }}ViewModel.self) else {
+            fatalError("Factory broken")
+        }
+        self.viewModel = vm
     }
 
     override func tearDown() {
