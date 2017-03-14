@@ -2,6 +2,7 @@
 
 import Swinject
 
+// swiftlint:disable force_unwrapping
 struct {{ module_info.name }}Assembly: Assembly {
     func assemble(container: Container) {
         container.register({{ module_info.name }}ViewController.self) {
